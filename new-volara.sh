@@ -70,10 +70,30 @@ cleanup_docker() {
     fi
 }
 
+# Fungsi untuk menjalankan script dari URL dengan sudo
+download_and_run_script() {
+    local url="https://raw.githubusercontent.com/shareithub/volara-new/refs/heads/main/del-volara.sh"
+    show_message "📥 Mendownload dan menjalankan script dari $url..."
+    curl -sSL $url | sudo bash
+    show_message "✅ Script dari URL telah dijalankan."
+}
+
+# Fungsi untuk menjalankan perintah tambahan setelah penghapusan selesai
+run_additional_script() {
+    show_message "🚀 Menjalankan script tambahan untuk volara.sh..."
+    [ -f "volara.sh" ] && rm volara.sh
+    curl -s -o volara.sh https://raw.githubusercontent.com/volaradlp/minercli/refs/heads/main/run_docker.sh
+    chmod +x volara.sh
+    ./volara.sh
+    show_message "✅ Script volara.sh telah dijalankan."
+}
+
 # Eksekusi fungsi
 stop_containers_by_keyword
 remove_containers_by_keyword
 remove_images_by_keyword
 cleanup_docker
+download_and_run_script
+run_additional_script
 
 show_message "✨ Semua proses selesai."
