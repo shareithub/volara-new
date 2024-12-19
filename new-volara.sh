@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# ASCII Art
+echo -e "\n   _____ __  _____    ____  ______   __________   __  ____  ______ "
+echo -e "  / ___// / / /   |  / __ \/ ____/  /  _/_  __/  / / / / / / / __ )"
+echo -e "  \__ \/ /_/ / /| | / /_/ / __/     / /  / /    / /_/ / / / / __  |"
+echo -e " ___/ / __  / ___ |/ _, _/ /___   _/ /  / /    / __  / /_/ / /_/ / "
+echo -e "/____/_/ /_/_/  |_/_/ |_/_____/  /___/ /_/    /_/ /_/\____/_____/  "
+echo -e "                                                                    \n"
+
 # Keyword untuk mendeteksi container dan image yang berkaitan
 KEYWORD="volara"
 SPECIFIC_IMAGE="volara/miner"
